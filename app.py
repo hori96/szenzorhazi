@@ -46,4 +46,4 @@ def manual_shutter_down():
 
 
 if __name__ == '__main__':
-   app.run(port = port, debug = True, use_reloader = False)
+   app.run(host=host, port = port, debug = True, use_reloader = False)
