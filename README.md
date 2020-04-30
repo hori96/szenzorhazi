@@ -14,6 +14,6 @@ Docker:
 
 Test:
 
-curl -X GET http://<IP>:<PORT>/temperature
+curl -X GET http://IP:PORT/temperature
 
-curl -X POST -H "accept: */*" -H "Content-Type: application/json" -d "{\"data\":\"train\"}" http://<IP>:<PORT>/train
+curl -X POST -H "accept: */*" -H "Content-Type: application/json" -d "{\"data\":\"train\"}" http://IP:PORT/train
