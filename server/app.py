@@ -14,26 +14,23 @@ def index():
 def setup():
     return render_template('setup.html')
 
-@app.route('/shutter_up', methods=['POST'])
-def shutter_up():
-    print("up")
-    return jsonify(data="up")
-
-@app.route('/shutter_down', methods=['POST'])
-def shutter_down():
-    print("down")
-    return jsonify(data="down")
 
 @app.route('/train', methods=['POST'])
 def train():
     json_data = request.json
-    print (json_data)
+    #print (json_data)
     if json_data["data"] == "train":
         res = requests.post(url_pre + '/shutter_down')
     elif json_data["data"] == "no_train":
         res = requests.post(url_pre + '/shutter_up')
     return jsonify(data="ok")
 
+@app.route('/temperature',methods = ['GET'])
+def temperature():
+    res = requests.get(url_pre + '/temperature')
+    return res.json()
+
+"""
 @app.route('/setup/shutter/up',methods = ['POST', 'GET'])
 def manual_shutter_up():
     res = requests.post(url_pre + '/shutter_up')
@@ -43,7 +40,7 @@ def manual_shutter_up():
 def manual_shutter_down():
     res = requests.post(url_pre + '/shutter_down')
     return redirect(url_for('setup'))
-
+"""
 
 if __name__ == '__main__':
    app.run(host=host, port = port, debug = True, use_reloader = False)

@@ -1,7 +1,10 @@
 # szenzorhazi
 
+RPI:
+
 pip3 install -r requirements.txt
 
+Laptop:
 Docker:
 
   docker build -t szenzor:latest .
